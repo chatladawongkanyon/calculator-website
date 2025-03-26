@@ -1,194 +1,270 @@
 /* ------------------ RESET + BASE ------------------ */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* ป้องกันแถบเลื่อนแนวนอน */
+}
+
+/* ------------------ HEADER ------------------ */
+.new-header {
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+  animation: headerAnimation 3s ease-in-out infinite;
+}
+
+@keyframes headerAnimation {
+  0% { background: linear-gradient(135deg, #00c9ff, #92fe9d); }
+  50% { background: linear-gradient(135deg, #92fe9d, #00c9ff); }
+  100% { background: linear-gradient(135deg, #00c9ff, #92fe9d); }
+}
+
+.new-header h1 {
+  font-size: 2.5rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ------------------ NAVIGATION ------------------ */
+.new-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px 0;
+}
+
+.new-nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.new-nav a:hover {
+  color: #007acc;
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.new-nav i {
+  font-size: 1.3rem;
+}
+
+.new-nav a:hover i {
+  transform: scale(1.2);
+}
+
+/* ------------------ LANDING PAGE ------------------ */
+.landing {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
   
-  html, body {
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f5f7fa;
-    color: #333;
-    display: flex;
-    flex-direction: column;
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #00c9ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background: #0099cc;
+}
+
+/* ------------------ FALLING NUMBERS AND SYMBOLS ------------------ */
+.falling-symbols {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.falling-symbols div {
+  position: absolute;
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  animation: fall 3s linear infinite;
+  color: #000; /* เริ่มต้นสี */
+  transition: color 0.3s ease-in-out;
+}
+
+@keyframes fall {
+  0% { 
+    top: -50px; 
+    opacity: 1;
   }
-  
-  @media (max-width: 768px) {
-    html, body {
-      overflow-y: auto;
-      height: auto;
-    }
+  100% { 
+    top: 100vh;
+    opacity: 0;
   }
-  
-  /* ------------------ HEADER ------------------ */
-  .new-header {
-    background: linear-gradient(135deg, #00c9ff, #92fe9d);
-    padding: 40px 20px;
-    text-align: center;
-    color: white;
-  }
-  .new-header h1 {
-    font-size: 2.5rem;
-  }
-  .new-header p {
-    font-size: 1.1rem;
-    margin-top: 10px;
-  }
-  
-  /* ------------------ NAVIGATION ------------------ */
-  .new-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 10px 0;
-  }
-  .new-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #333;
-  }
-  .new-nav a:hover {
-    color: #007acc;
-  }
-  
-  /* ------------------ LANDING PAGE ------------------ */
-  .landing {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  
-    min-height: calc(100vh - 160px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .cta-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: #00c9ff;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-  }
-  .cta-button:hover {
-    background: #0099cc;
-  }
-  
-  /* ------------------ CALCULATOR ------------------ */
-  .calculator-container {
-    max-width: 280px;
-    margin: 20px auto 40px;
-    padding: 15px 12px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #display {
-    width: 100%;
-    padding: 12px;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-align: right;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    width: 100%;
-  }
-  .buttons button {
-    padding: 16px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 8px;
-    background: #f0f0f0;
-    cursor: pointer;
-  }
-  .buttons button:hover {
-    background: #d0e8ff;
-  }
-  .clear {
-    background: #ff4d4d;
-    color: rgb(33, 147, 246);
-    grid-column: span 4;
-    padding: 14px;
-  }
-  .clear:hover {
-    background: #cc0000;
-  }
-  
-  /* ------------------ PROFILE / ABOUT PAGE ------------------ */
-  .profile-container {
-    max-width: 600px;
-    margin: 30px auto 0; /* << แก้ตรงนี้: เว้นห่างด้านบน */
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-  
-    min-height: calc(100vh - 160px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  .profile-pic {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
-  .profile-card h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  /* ------------------ FOOTER ------------------ */
-  .new-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #eaeaea;
-    margin-top: auto;
-    font-size: 0.9rem;
-  }
-  
-  /* ------------------ RESPONSIVE TWEAKS ------------------ */
-  @media (max-width: 480px) {
-    .calculator-container {
-      max-width: 90%;
-      margin-top: 60px;
-      padding: 12px;
-    }
-  
-    .buttons button {
-      padding: 14px;
-      font-size: 1rem;
-    }
-  
-    .cta-button {
-      width: 100%;
-    }
-  
-    .profile-container {
-      padding: 20px;
-    }
-  }
-  
+}
+
+/* ------------------ PROFILE / ABOUT PAGE ------------------ */
+.profile-container {
+  max-width: 600px;
+  margin: 30px auto 0;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: profileFadeIn 0.8s ease-in-out;
+}
+
+@keyframes profileFadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
+}
+
+.profile-card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.profile-card p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+/* ------------------ SOCIAL MEDIA / GITHUB LINK ------------------ */
+.social-media {
+  margin-top: 20px;
+}
+
+.github-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: #007acc;
+}
+
+.github-link i {
+  font-size: 1.5rem;
+}
+
+.new-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #eaeaea;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* ------------------ CALCULATOR ------------------ */
+.calculator-container {
+  max-width: 280px;
+  margin: 20px auto 40px;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#display {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  text-align: right;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.buttons button {
+  padding: 14px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.buttons button:hover {
+  background: #d0e8ff;
+  transform: scale(1.05);
+}
+
+.clear {
+  background: #ff4d4d;
+  color: rgb(22, 147, 242);
+  grid-column: span 4;
+  padding: 16px;
+}
+
+.clear:hover {
+  background: #cc0000;
+}
+
+button:focus {
+  outline: none;
+}
