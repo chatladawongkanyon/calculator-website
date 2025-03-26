@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calculator</title>
   <link rel="stylesheet" href="styles.css"/>
+  <!-- เพิ่ม Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 <body>
   <header class="new-header">
@@ -12,9 +14,9 @@
   </header>
 
   <nav class="new-nav">
-    <a href="index.html">Home</a>
-    <a href="calculator.html">Calculator</a>
-    <a href="about.html">About Me</a>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="calculator.html"><i class="fas fa-calculator"></i> Calculator</a>
+    <a href="about.html"><i class="fas fa-user"></i> About Me</a>
   </nav>
 
   <main class="calculator-container">
@@ -24,17 +26,17 @@
       <button onclick="press('8')">8</button>
       <button onclick="press('9')">9</button>
       <button onclick="press('/')">/</button>
-
+      
       <button onclick="press('4')">4</button>
       <button onclick="press('5')">5</button>
       <button onclick="press('6')">6</button>
       <button onclick="press('*')">*</button>
-
+      
       <button onclick="press('1')">1</button>
       <button onclick="press('2')">2</button>
       <button onclick="press('3')">3</button>
       <button onclick="press('-')">-</button>
-
+      
       <button onclick="press('0')">0</button>
       <button onclick="press('.')">.</button>
       <button onclick="calculate()">=</button>
@@ -43,6 +45,7 @@
       <button onclick="clearDisplay()" class="clear">C</button>
     </div>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
