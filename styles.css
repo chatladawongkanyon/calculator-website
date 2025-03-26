@@ -115,8 +115,9 @@ html, body {
 
 .falling-symbols div {
   position: absolute;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', cursive; /* ฟอนต์ที่ตก */
   font-size: 2rem;
+  font-weight: bold;  /* เพิ่มความหนาของฟอนต์ */
   animation: fall 3s linear infinite;
   color: #000; /* เริ่มต้นสี */
   transition: color 0.3s ease-in-out;
